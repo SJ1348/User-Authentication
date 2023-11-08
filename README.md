@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- Signup -
 
-## Getting Started
+1. New User can signup and set password with realtime constraint errors, there are no constraints on email and username.
+2. Password visible on button click.
+3. Loading animation on clicking signup button.
+4. Password is encrypted using bcrypt and then stored in database. All other fields are stored as it is in database with some additional info.
+   username:String,
+   email:String,
+   password:String,
+   isVerified:Boolean,
+   forgotPasswordToken: String,
+   forgotPasswordTokenExpiry: Date,
+   verifyToken: String,
+   verifyTokenExpiry: Date,
+5. Redirect to login page after succesful signup.
+6. If email already exists in database then convyed on frontend to login.
 
-First, run the development server:
+- Login -
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Existing user can login.
+2. Password visible on button click.
+3. Loading animation on clicking login button.
+4. Link to redirect to signup page.
+5. Checking for email and password(password stored in database is decrypted before checking) and message displayed for invalid credentials.
+6. Generate Token on backend using jwt and email,username,\_id and store the token as cookies on client browser with 1 day expiry.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Middleware -
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Doesn't allow to visit /login , /signup if already logged in using token and redirected to /.
+2. Doesn't allow to visit /profile if not logged in and redirectd to /login.
