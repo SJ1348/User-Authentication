@@ -26,5 +26,5 @@
 
 - Middleware -
 
-1. Doesn't allow to visit /login , /signup if already logged in using token and redirected to /.
-2. Doesn't allow to visit /profile if not logged in and redirectd to /login.
+1. Doesn't allow to visit "/login" , "/signup" if already logged in using token and redirected to "/".
+2. Doesn't allow to visit "/profile" if not logged in and redirectd to "/login".
