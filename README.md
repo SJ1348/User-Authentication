@@ -4,14 +4,6 @@
 2. Password visible on button click.
 3. Loading animation on clicking signup button.
 4. Password is encrypted using bcrypt and then stored in database. All other fields are stored as it is in database with some additional info.
-   username:String,
-   email:String,
-   password:String,
-   isVerified:Boolean,
-   forgotPasswordToken: String,
-   forgotPasswordTokenExpiry: Date,
-   verifyToken: String,
-   verifyTokenExpiry: Date,
 5. Redirect to login page after succesful signup.
 6. If email already exists in database then convyed on frontend to login.
 
